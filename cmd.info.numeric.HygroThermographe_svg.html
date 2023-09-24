@@ -1,0 +1,347 @@
+<div class="cmd cmd-widget" data-type="info" data-subtype="numeric" data-cmd_id="#id#" data-cmd_uid="#uid#" data-version="#version#" data-eqLogic_id="#eqLogic_id#" style="width: 100%;">
+<!-- ################ Distribution HygroThermographe ################ 
+  Widget name : cmd.info.numeric.HygroThermographe_svg
+  Author : Phpvarious
+  Last Uptade : 2023/09/24 22h00 - Création 
+-->
+  <style>
+    :root {
+      --cercle1_colour#id#: #dadada;
+      --cercle2_colour#id#: #000000;
+      --cercle3_colour#id#: #797979;
+      --text_colour#id#: #181818;
+      --size#id#: 200px;
+      --font-weight#id#: bold;
+    }
+    @font-face {
+	font-family: "Digital-7";
+	src: url("core/template/dashboard/cmd.info.numeric.HygroThermographe/font/digital-7.eot?") format("eot"),
+	  url("core/template/dashboard/cmd.info.numeric.HygroThermographe/font/digital-7.woff") format("woff"),
+	  url("core/template/dashboard/cmd.info.numeric.HygroThermographe/font/digital-7.ttf") format("truetype"),
+      url("core/template/dashboard/cmd.info.numeric.HygroThermographe/font/digital-7.svg#Digital-7") format("svg");
+	font-weight: normal;
+	font-style: normal;
+    }
+    .lcd_text#id# {
+      font-family: "Digital-7";
+      color: var(--text_colour#id#);
+      font-weight: var(--font-weight#id#);
+      letter-spacing: 0.05em;
+    }
+    .size_svg#id# {
+      height: var(--size#id#);
+      width: var(--size#id#);
+    }
+    .left-align#id# {text-anchor: start;}
+    .right-align#id# {text-anchor: end;}
+    .center-align#id# {text-anchor: middle;}
+    .hide-#id# { display: none;}
+    .blink#id# {
+      -moz-animation: blinking#id# 1s linear infinite;
+      -webkit-animation: blinking#id# 1s linear infinite;
+      animation: blinking#id# 1s linear infinite;
+    }
+    @keyframes blinking#id# {
+      0% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+  </style>
+  <div class="title #hide_name#">
+    <div  class="cmdName">#name_display#</div>
+  </div>
+  <div class="widget#id#">
+    <svg viewBox="0 0 100 100" id="svg#id#" preserveAspectRatio="xMidYMid meet" class="size_svg#id#" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+      <circle cx="50" cy="50" r="50" class="" fill="var(--cercle2_colour#id#)" style="opacity: 0.5;"></circle>
+      <circle cx="50" cy="50" r="49.8" class="" fill="var(--cercle1_colour#id#)"></circle>
+      <circle cx="50" cy="50" r="39" class="" fill="var(--cercle2_colour#id#)"></circle>
+      <circle cx="50" cy="50" r="37" class="" fill="var(--cercle3_colour#id#)"></circle>
+      <svg data-cmd_id='#id#' class="#history#">
+        <text x="62" y="48.5" id="temp-int-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 2.6em;"></text>
+        <text x="72" y="44" id="temp-dec-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 1.4em;"></text>
+        <text x="79.2" y="40.5" id="temp-unit-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 0.65em;">°C</text>
+        <text x="65" y="55" id="history-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 0.5em;"></text>
+        <svg class="#hide_history#" width="8px" height="8px" id="tendance-#id#" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" x="67" y="49"></svg>
+      </svg>
+      <svg id="hum-#id#">
+        <text x="62" y="77" id="hum-int-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 2.2em;"></text>
+        <text x="69" y="73" id="hum-dec-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 1.2em;"></text>
+        <text x="74" y="70" id="hum-unit-#id#" display="" fill="var(--text_colour#id#)" class="right-align#id# lcd_text#id#" style="font-size: 0.6em;">%</text>
+      </svg>
+      
+      <rect x="46" y="92" width="10" height="3" rx="2" ry="2" fill="var(--cercle2_colour#id#)" stroke="var(--cercle2_colour#id#)" pointer-events="all" class=""></rect>
+      
+      <path d="M 17 57 L 83 57" id="line-#id#" fill="none" stroke="var(--text_colour#id#)" stroke-width="0.3" stroke-miterlimit="10" pointer-events="stroke"></path>
+      
+      <svg fill="var(--text_colour#id#)" id="battery-#id#" width="14px" height="14px" x="51" y="13" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+        <path id="battery-path-#id#" fill-rule="evenodd" d="M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z"></path>
+      </svg>
+      <text id="battery-text-#id#" x="65" y="22.5" class="right-align#id# lcd_text#id# hide-#id#" style="font-size: 0.7em;letter-spacing: unset;"></text>
+      <svg width="10px" height="10px" id="online-#id#" viewBox="0 0 24 24" x="37" y="15" fill="none" xmlns="http://www.w3.org/2000/svg" class="blink#id#">
+        <path id="online-path-#id#" d="M7 17L12 12M17 17L12 22V12M3 3L12 12M21 21L12 12M14.8252 9.1748L17 7L12 2V6.34961" stroke="var(--text_colour#id#)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </svg>
+  </div>
+  
+  <script>
+    var debug#id# = ('#debug#' == 1) ? true : false;
+    var fullJs#id# = false
+    var jeedomVersion#id# = 4.4
+    var versionWidget#id# = '24/09/2023 22h00'
+    if (debug#id#) console.log('┌─────────────────── Widget HygroThermographe_svg [#id#] Compatibilité V4.3 V4.4 [' + versionWidget#id# + '] ───────────────')
+    /* Compatibilité V4.2 V4.3 V4.4 */
+    /**/ if(typeof jeeFrontEnd === 'undefined') {
+    /**/   if (debug#id#) console.log('| jeeFrontEnd no exist -> version <= 4.2')
+    /**/   jeedomVersion#id# = 4.2
+    /**/ }
+    /**/ else
+    /**/ {
+    /**/   jeedomVersion#id# = jeeFrontEnd.jeedomVersion.substr(0, 3)
+    /**/   if (debug#id#) console.log('| jeeFrontEnd -> version == ' + jeedomVersion#id#)
+    /**/ }
+    /**/ if (jeedomVersion#id# >= 4.4) {
+    /**/   fullJs#id# = true
+    /**/   if (debug#id#) console.log('| Full Js')
+    /**/ }
+    /**/ if (typeof jeedom.cmd.addUpdateFunction !== 'function') { // a partir de la 4.3
+    /**/   if (debug#id#) console.log('| jeedom.cmd.addUpdateFunction no exist')
+    /**/   jeedom.cmd.addUpdateFunction = function(id,func) { jeedom.cmd.update[id]=func; }
+    /**/ }
+    /* ------------------------------------------ */
+    
+    function getSvgBattery#id#(value = 0){
+      if (value == 0) return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z'
+      else if (value <= 20) return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z'
+      else if (value <= 40) return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z M7.078125,9.07373047 L9.078125,9.07373047 L9.078125,15.2611964 L7.078125,15.2611964 L7.078125,9.07373047 Z'
+      else if (value <= 60) return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z M7.078125,9.07373047 L9.078125,9.07373047 L9.078125,15.2611964 L7.078125,15.2611964 L7.078125,9.07373047 Z M10.078125,9.07373047 L12.078125,9.07373047 L12.078125,15.2611964 L10.078125,15.2611964 L10.078125,9.07373047 Z'
+      else if (value <= 80)return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z M7.078125,9.07373047 L9.078125,9.07373047 L9.078125,15.2611964 L7.078125,15.2611964 L7.078125,9.07373047 Z M10.078125,9.07373047 L12.078125,9.07373047 L12.078125,15.2611964 L10.078125,15.2611964 L10.078125,9.07373047 Z M13.078125,9.07373047 L15.078125,9.07373047 L15.078125,15.2611964 L13.078125,15.2611964 L13.078125,9.07373047 Z'
+      else return 'M21,9 C22.1045695,9 23,9.8954305 23,11 L23,13 C23,14.1045695 22.1045695,15 21,15 L21,16 C21,17.1045695 20.1045695,18 19,18 L3,18 C1.8954305,18 1,17.1045695 1,16 L1,8 C1,6.8954305 1.8954305,6 3,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,9 Z M3,8 L3,16 L19,16 L19,8 L3,8 Z M4.078125,9.07373047 L6.078125,9.07373047 L6.078125,15.2611964 L4.078125,15.2611964 L4.078125,9.07373047 Z M7.078125,9.07373047 L9.078125,9.07373047 L9.078125,15.2611964 L7.078125,15.2611964 L7.078125,9.07373047 Z M10.078125,9.07373047 L12.078125,9.07373047 L12.078125,15.2611964 L10.078125,15.2611964 L10.078125,9.07373047 Z M13.078125,9.07373047 L15.078125,9.07373047 L15.078125,15.2611964 L13.078125,15.2611964 L13.078125,9.07373047 Z M16.078125,9.07373047 L18.078125,9.07373047 L18.078125,15.2611964 L16.078125,15.2611964 L16.078125,9.07373047 Z'
+    }
+    
+    function getColour#id#(temp=0, min=0, max=255){
+      let black = ((max - min) / 2) + min;
+      let step = black - min
+      let r, b
+      if(temp < black) {
+        r = 0
+        b = Math.round(255 - ((temp - min) * 255 / step))
+        b = (b > 255) ? 255 : b
+      }
+      else if(temp > black) {
+        r = Math.round((temp - black) * 255 / step)
+        r = (r > 255) ? 255 : r
+        b = 0
+      }
+      else return 'rgb(0,0,0)'
+      
+      return 'rgb('+r+',0,'+b+')'
+    }
+    
+    ////////////////////////// Config /////////////////////////
+    var config#id# = {
+      temp_min: false,
+      temp_max: false,
+      hum: false,
+      battery: false,
+      online: false,
+      rssi: 0,
+      colourTempAuto: false
+    }
+    if ("#cercle1Color#" != '#'+'cercle1Color#') document.documentElement.style.setProperty('--cercle1_colour#id#', '#cercle1Color#')
+    if ("#cercle2Color#" != '#'+'cercle2Color#') document.documentElement.style.setProperty('--cercle2_colour#id#', '#cercle2Color#')
+    if ("#cercle3Color#" != '#'+'cercle3Color#') document.documentElement.style.setProperty('--cercle3_colour#id#', '#cercle3Color#')
+    if ("#textColor#" != '#'+'textColor#') document.documentElement.style.setProperty('--text_colour#id#', '#textColor#')
+    if ("#size#" != '#'+'size#') document.documentElement.style.setProperty('--size#id#', '#size#px')
+    if (is_numeric('#rssi#'))  config#id#.rssi = '#rssi#'
+    if (is_numeric('#boldDisable#') && '#boldDisable#' == 1) document.documentElement.style.setProperty('--font-weight#id#', 'unset')
+    if (is_numeric('#batteryNum#') && '#batteryNum#' == 1) {
+      document.getElementById("battery-#id#").classList.add('hide-#id#')
+      document.getElementById("battery-text-#id#").classList.remove('hide-#id#')
+    }
+    if (is_numeric('#minTemp#') && is_numeric('#maxTemp#') && '#maxTemp#' > '#minTemp#') {
+      config#id#.temp_min = parseFloat('#minTemp#')
+      config#id#.temp_max = parseFloat('#maxTemp#')
+      config#id#.colourTempAuto = true
+    }
+    
+    if ('#minHistoryValue#' != '#'+'minHistoryValue#' && '#maxHistoryValue#' != '#'+'maxHistoryValue#'){
+      if (debug#id# == 1) console.log('| history -> #minHistoryValue# / #averageHistoryValue# / #maxHistoryValue# / #tendance#')
+      document.getElementById("history-#id#").innerHTML = '#minHistoryValue#/#averageHistoryValue#/#maxHistoryValue#'
+      if ('#tendance#' == 'fas fa-arrow-up') document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 13.5V9M15.0001 9H10.5001M15.0001 9L9.00024 14.9999M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'
+      else if ('#tendance#' == 'fas fa-arrow-up') document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 10.5001V15.0001M15.0001 15.0001H10.5001M15.0001 15.0001L9.00024 9M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+      else document.getElementById("tendance-#id#").innerHTML = '<path d="M 8 12 L 16 12 M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+
+      
+    }
+    //////////////////////////////////////////////////
+    jeedom.cmd.addUpdateFunction('#id#', function(_options) {
+      if (debug#id# == 1) console.log('event for temperature[#id#] -> ' + _options.value)
+      if (_options.value != undefined) 
+      {
+        let n = parseFloat(_options.value).toFixed(1), _int = n.split('.')[0], _dec = n.split('.')[1]
+        if (config#id#.colourTempAuto === true) {
+          let colour = getColour#id#(n, config#id#.temp_min, config#id#.temp_max)
+          document.getElementById("temp-int-#id#").setAttribute('fill',colour)
+          document.getElementById("temp-dec-#id#").setAttribute('fill',colour)
+          document.getElementById("temp-unit-#id#").setAttribute('fill',colour)
+        }
+        document.getElementById("temp-int-#id#").innerHTML = _int + '.'
+        document.getElementById("temp-dec-#id#").innerHTML = _dec
+        document.getElementById("battery-text-#id#").innerHTML = n + '%'
+      }
+    })
+    
+    jeedom.eqLogic.getCmd({
+      
+      id: '#eqLogic_id#',
+      async: false,
+      success: function (cmds) {
+        //console.table(cmds)
+        for (j in cmds) {
+          cmds[j].name = cmds[j].name.toLowerCase();
+          cmds[j].name = cmds[j].name.replace(/é/g, 'e');
+          cmds[j].name = cmds[j].name.replace(/_/g, ' ');
+          let id_eql = cmds[j].id;
+          let name = cmds[j].name
+          let genericType = cmds[j].generic_type
+          let isHistorized = cmds[j].isHistorized
+          let subType = cmds[j].subType
+          ///////////////////////////////////////////////////////////////////////
+          ///////////////////////////////  HUMIDITY /////////////////////////////
+          ///////////////////////////////////////////////////////////////////////
+          //else if (genericType == 'HUMIDITY'){
+          if (genericType == 'HUMIDITY'){
+            if (debug#id# == 1) console.log('| HUMIDITY')
+            if (isHistorized == 1) {
+              document.getElementById("hum-#id#").setAttribute('data-cmd_id', id_eql)
+              document.getElementById("hum-#id#").classList.add('history', 'cursor')
+            }
+            jeedom.cmd.execute({
+              id: id_eql,
+              async: false,
+              success:  function(humidity) {
+                if (debug#id# == 1) console.log('|    └> cmd.execute : ' + humidity)
+                if (typeof humidity === "number") {
+                  config#id#.hum = humidity
+                  var n = parseFloat(humidity).toFixed(1), _int = n.split('.')[0], _dec = n.split('.')[1]
+                  document.getElementById("hum-int-#id#").innerHTML = _int + '.'
+                  document.getElementById("hum-dec-#id#").innerHTML = _dec
+                }
+              }
+            })
+            jeedom.cmd.addUpdateFunction(cmds[j].id, function(_options) {
+              if (debug#id# == 1) console.log('event for ' + name + '[' + id_eql + '] -> ' + _options.value)
+              if (_options.value != undefined) 
+              {
+                let n = parseFloat(_options.value).toFixed(1), _int = n.split('.')[0], _dec = n.split('.')[1]
+                document.getElementById("hum-int-#id#").innerHTML = _int + '.'
+                document.getElementById("hum-dec-#id#").innerHTML = _dec
+              }
+            })
+          }
+          ///////////////////////////////////////////////////////////////////////
+          ////////////////////////////////  BATTERY /////////////////////////////
+          ///////////////////////////////////////////////////////////////////////
+          else if (genericType == 'BATTERY'){
+            if (debug#id# == 1) console.log('| BATTERY')
+            if (isHistorized == 1) {
+              document.getElementById("battery-#id#").setAttribute('data-cmd_id', id_eql)
+              document.getElementById("battery-#id#").classList.add('history', 'cursor')
+            }
+            jeedom.cmd.execute({
+              id: id_eql,
+              async: false,
+              success:  function(battery) {
+                if (debug#id# == 1) console.log('|    └> cmd.execute : ' + battery)
+                if (typeof battery === "number") {
+                  config#id#.battery = battery
+                  document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(battery));
+                }
+              }
+            })
+            jeedom.cmd.addUpdateFunction(cmds[j].id, function(_options) {
+              if (debug#id# == 1) console.log('event for ' + name + '[' + id_eql + '] -> ' + _options.value)
+              if (_options.value != undefined) 
+              {
+                let battery = _options.value
+                document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(battery));
+              }
+            })
+          }
+          ///////////////////////////////////////////////////////////////////////
+          ////////////////////////////////  ONLINE //////////////////////////////
+          ///////////////////////////////////////////////////////////////////////
+          else if ((subType == 'binary' && (genericType == 'ONLINE' || genericType == 'MEDIA_STATE')) || (subType == 'numeric' && genericType == 'GENERIC_INFO')){
+            if (debug#id# == 1) console.log('| ONLINE')
+            if (isHistorized == 1) {
+              document.getElementById("online-#id#").setAttribute('data-cmd_id', id_eql)
+              document.getElementById("online-#id#").classList.add('history', 'cursor')
+            }
+            jeedom.cmd.execute({
+              id: id_eql,
+              async: false,
+              success:  function(online) {
+                if (debug#id# == 1) console.log('|    └> cmd.execute : ' + online)
+                if (typeof online === "number") {
+                  config#id#.online = online
+                  if ((online > config#id#.rssi && subType == 'numeric') || (parseInt(online) > 0 && subType == 'binary')) {
+                    document.getElementById("online-path-#id#").setAttribute("d", "M7 17L17 7L12 2V22L17 17L7 7")
+                    document.getElementById("online-#id#").classList.remove("blink#id#")
+                  }
+                }
+              }
+            })
+            jeedom.cmd.addUpdateFunction(cmds[j].id, function(_options) {
+              if (debug#id# == 1) console.log('event for ' + name + '[' + id_eql + '] -> ' + _options.value)
+              if (_options.value != undefined) 
+              {
+                let online = _options.value
+                if ((online > config#id#.rssi && subType == 'numeric') || (parseInt(online) > 0 && subType == 'binary')) {
+                  document.getElementById("online-path-#id#").setAttribute("d", "M7 17L17 7L12 2V22L17 17L7 7")
+                  document.getElementById("online-#id#").classList.remove("blink#id#")
+                }
+                else 
+                {
+                  document.getElementById("online-path-#id#").setAttribute("d", "M7 17L12 12M17 17L12 22V12M3 3L12 12M21 21L12 12M14.8252 9.1748L17 7L12 2V6.34961")
+                  document.getElementById("online-#id#").classList.add("blink#id#")
+                }
+              }
+            })
+          }
+          else {
+            if (debug#id# == 1) {
+              if (genericType != null && genericType != 'null' && genericType != '') console.log('| ----------------> /!\\ le generique type [' + genericType + ']de la commande ' + name + '[' + id_eql + '] est inconnu')
+            }
+          }
+        }
+      }
+    })
+    if (debug#id#) console.log('└──────────────────────────────────────────────────────')
+    if (config#id#.battery === false) document.getElementById("battery-#id#").setAttribute("display", "none")
+    if (config#id#.online === false) document.getElementById("online-#id#").setAttribute("display", "none")
+    if (config#id#.hum === false){
+      document.getElementById("hum-#id#").setAttribute("display", "none")
+      document.getElementById("temp-int-#id#").setAttribute("y", "58")
+      document.getElementById("temp-dec-#id#").setAttribute("y", "53.5")
+      document.getElementById("temp-unit-#id#").setAttribute("y", "50")
+      document.getElementById("history-#id#").setAttribute("y", "70")
+      document.getElementById("tendance-#id#").setAttribute("y", "64")
+      document.getElementById("line-#id#").classList.add('hide-#id#')
+    }
+    jeedom.cmd.refreshValue([{ cmd_id: '#id#', value: '#value#', display_value: '#state#', valueDate: '#valueDate#', collectDate: '#collectDate#', alertLevel: '#alertLevel#', unit: '#unite#' }])
+  </script>
+  <template>
+    <div>cercle1Color : Couleur anneau extérieur [ Exemple : #fffff, white | Défaut : #dadada ]</div>
+    <div>cercle2Color : Couleur anneau intérieur [ Exemple : #fffff, white | Défaut : #000000 ]</div>
+    <div>cercle3Color : Background intérieur [ Exemple : #fffff, white | Défaut : #797979 ]</div>
+    <div>textColor : Couleurs des textes [ Exemple : #fffff, white | Défaut : #181818 ]</div>
+    <div>-------------- Gestion couleur Auto en fonction de température --------------- </div>
+    <div> /!\ si les 2 paramètres ci-dessous sont renseignés, le paramètre "textColor" sera désactivé pour la température. </div>
+    <div>minTemp : Température minimum (pour couleur bleu)</div>
+    <div>maxTemp : Température maximum (pour couleur rouge)</div>
+    <div>--------------------------------------------------------------------------------------------------- </div>
+    <div>rssi : valeur mini du rssi pour considérer l'équipement hors line (ne pas utiliser si votre commande est de type binaire).</div>
+    <div>size : taille du widget [ Exemple : 100, 150 | Défaut : 200 ]</div>
+    <div>boldDisable : Mettre a 1 pour désactiver l'effet "gras" sur le texte</div>
+    <div>batteryNum : Si =1 le logo de batterie sera remplacé par la valeur texte en %.</div>
+  </template>
+</div>

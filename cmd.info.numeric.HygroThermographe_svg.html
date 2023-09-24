@@ -166,8 +166,9 @@
     if ('#minHistoryValue#' != '#'+'minHistoryValue#' && '#maxHistoryValue#' != '#'+'maxHistoryValue#'){
       if (debug#id# == 1) console.log('| history -> #minHistoryValue# / #averageHistoryValue# / #maxHistoryValue# / #tendance#')
       document.getElementById("history-#id#").innerHTML = '#minHistoryValue#/#averageHistoryValue#/#maxHistoryValue#'
-      if ('#tendance#' == 'fas fa-arrow-up') document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 13.5V9M15.0001 9H10.5001M15.0001 9L9.00024 14.9999M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'
-      else if ('#tendance#' == 'fas fa-arrow-up') document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 10.5001V15.0001M15.0001 15.0001H10.5001M15.0001 15.0001L9.00024 9M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
+      if ('#tendance#' == 'fas fa-arrow-up') 
+        document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 13.5V9M15.0001 9H10.5001M15.0001 9L9.00024 14.9999M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'
+      else if ('#tendance#' == 'fas fa-arrow-down') document.getElementById("tendance-#id#").innerHTML = '<path d="M15.0001 10.5001V15.0001M15.0001 15.0001H10.5001M15.0001 15.0001L9.00024 9M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
       else document.getElementById("tendance-#id#").innerHTML = '<path d="M 8 12 L 16 12 M7.20024 20H16.8002C17.9203 20 18.4804 20 18.9082 19.782C19.2845 19.5903 19.5905 19.2843 19.7823 18.908C20.0002 18.4802 20.0002 17.9201 20.0002 16.8V7.2C20.0002 6.0799 20.0002 5.51984 19.7823 5.09202C19.5905 4.71569 19.2845 4.40973 18.9082 4.21799C18.4804 4 17.9203 4 16.8002 4H7.20024C6.08014 4 5.52009 4 5.09226 4.21799C4.71594 4.40973 4.40998 4.71569 4.21823 5.09202C4.00024 5.51984 4.00024 6.07989 4.00024 7.2V16.8C4.00024 17.9201 4.00024 18.4802 4.21823 18.908C4.40998 19.2843 4.71594 19.5903 5.09226 19.782C5.52009 20 6.08014 20 7.20024 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>'
 
       
@@ -186,7 +187,7 @@
         }
         document.getElementById("temp-int-#id#").innerHTML = _int + '.'
         document.getElementById("temp-dec-#id#").innerHTML = _dec
-        document.getElementById("battery-text-#id#").innerHTML = n + '%'
+        //document.getElementById("battery-text-#id#").innerHTML = n + '%'
       }
     })
     
@@ -253,8 +254,9 @@
               success:  function(battery) {
                 if (debug#id# == 1) console.log('|    └> cmd.execute : ' + battery)
                 if (typeof battery === "number") {
-                  config#id#.battery = battery
-                  document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(battery));
+                  config#id#.battery = parseFloat(battery).toFixed(1)
+                  document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(config#id#.battery));
+                  document.getElementById("battery-text-#id#").innerHTML = config#id#.battery + '%'
                 }
               }
             })
@@ -262,8 +264,10 @@
               if (debug#id# == 1) console.log('event for ' + name + '[' + id_eql + '] -> ' + _options.value)
               if (_options.value != undefined) 
               {
-                let battery = _options.value
-                document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(battery));
+                //let battery = parseFloat(_options.value).toFixed(1)
+                config#id#.battery = parseFloat(_options.value).toFixed(1)
+                document.getElementById("battery-path-#id#").setAttribute("d", getSvgBattery#id#(config#id#.battery));
+                document.getElementById("battery-text-#id#").innerHTML = config#id#.battery + '%'
               }
             })
           }
